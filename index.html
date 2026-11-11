@@ -1,0 +1,368 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="MarsPizza — первая доставка пиццы на Марс. Горячей? Почти." />
+  <title>MarsPizza — пицца на Марс</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@600;700&family=Space+Grotesk:wght@400;500;600;700&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <!-- ===== Header ===== -->
+  <header class="site-header" id="top">
+    <div class="container header-inner">
+      <a class="logo" href="#top" aria-label="MarsPizza — наверх">
+        <span class="logo-mark" aria-hidden="true">🍕🚀</span>
+        <span class="logo-text">MarsPizza</span>
+      </a>
+
+      <button
+        class="nav-toggle"
+        type="button"
+        aria-expanded="false"
+        aria-controls="site-nav"
+        aria-label="Открыть меню"
+      >
+        <span></span><span></span><span></span>
+      </button>
+
+      <nav class="site-nav" id="site-nav" aria-label="Основная навигация">
+        <ul>
+          <li><a href="#how">Как это работает</a></li>
+          <li><a href="#menu">Меню</a></li>
+          <li><a href="#weather">Погода</a></li>
+          <li><a href="#reviews">Отзывы</a></li>
+          <li><a href="#order">Заказать</a></li>
+        </ul>
+      </nav>
+
+      <div class="header-actions">
+        <a class="cart-badge" href="#order" aria-live="polite" title="Перейти к корзине">
+          <span aria-hidden="true">🛒</span>
+          <span id="cart-count">0</span>
+        </a>
+        <a class="btn btn-primary btn-sm" href="#order">Заказать</a>
+      </div>
+    </div>
+  </header>
+
+  <main>
+    <!-- ===== Hero ===== -->
+    <section class="hero" id="hero" aria-labelledby="hero-title">
+      <div class="hero-stars" aria-hidden="true"></div>
+      <div class="container">
+        <div class="hero-inner">
+          <p class="brand-badge hero-cascade">MarsPizza</p>
+          <h1 id="hero-title" class="hero-cascade">Пицца на Марс за 7 месяцев — горячей? Почти.</h1>
+          <p class="hero-sub hero-cascade">
+            Мы запускаем пепперони туда, где ещё нет доставки —
+            через вакуум, радиацию и чужие почтовые индексы.
+          </p>
+          <div class="hero-cta hero-cascade">
+            <a class="btn btn-primary btn-hero-pulse" href="#order">Заказать</a>
+            <a class="btn btn-ghost" href="#menu">Смотреть меню</a>
+          </div>
+        </div>
+      </div>
+
+      <!-- CSS-анимация: ракета с пиццей -->
+      <div class="rocket-flight" aria-hidden="true">
+        <div class="rocket">
+          <span class="rocket-pizza">🍕</span>
+          <span class="rocket-body">🚀</span>
+        </div>
+      </div>
+    </section>
+
+    <!-- ===== Как это работает ===== -->
+    <section class="section how" id="how" data-reveal>
+      <div class="container">
+        <h2 class="section-title">Как это работает</h2>
+        <p class="section-lead">Четыре шага от корзины до кратера. Без паники — паника на Марсе дороже.</p>
+
+        <ol class="steps">
+          <li class="step">
+            <span class="step-icon" aria-hidden="true">🍕</span>
+            <h3>Выбрать пиццу</h3>
+            <p>Шесть абсурдных вкусов. Все одобрены межпланетной санитарной службой (мы её сами и придумали).</p>
+          </li>
+          <li class="step">
+            <span class="step-icon" aria-hidden="true">📦</span>
+            <h3>Собрать термобокс</h3>
+            <p>Многослойная изоляция, фольга и надежда. Температура падает медленнее, чем энтузиазм.</p>
+          </li>
+          <li class="step">
+            <span class="step-icon" aria-hidden="true">🚀</span>
+            <h3>Запуск ракеты</h3>
+            <p>Окно старта — когда небо ясное, а бухгалтерия согласна. Пицца едет бизнес-классом в грузовом отсеке.</p>
+          </li>
+          <li class="step">
+            <span class="step-icon" aria-hidden="true">🔴</span>
+            <h3>Доставка на Марс</h3>
+            <p>Курьер в скафандре стучит в шлюз. Чаевые принимаются в марсианских кредитах и метеоритах.</p>
+          </li>
+        </ol>
+      </div>
+    </section>
+
+    <!-- ===== Меню ===== -->
+    <section class="section menu" id="menu" data-reveal>
+      <div class="container">
+        <h2 class="section-title">Меню орбитального цеха</h2>
+        <p class="section-lead">Цены указаны в рублях и марсианских кредитах (МК). Курс МК придуман нами — как и сама доставка.</p>
+
+        <div class="menu-grid" id="menu-grid">
+          <!-- Карточки наполняются из JS, чтобы цены совпадали с калькулятором -->
+        </div>
+      </div>
+    </section>
+
+    <!-- ===== Калькулятор доставки ===== -->
+    <section class="section calculator" id="calculator" data-reveal>
+      <div class="container">
+        <h2 class="section-title">Калькулятор доставки</h2>
+        <p class="section-lead">Посчитайте, сколько стоит отправить пиццу туда, где её ещё никто не ждал.</p>
+
+        <form class="calc-panel" id="calc-form" aria-label="Калькулятор доставки">
+          <div class="calc-fields">
+            <div class="field">
+              <label for="calc-pizza">Пицца</label>
+              <select id="calc-pizza" name="pizza" required></select>
+            </div>
+
+            <div class="field">
+              <label for="calc-planet">Планета назначения</label>
+              <select id="calc-planet" name="planet">
+                <option value="earth">Земля</option>
+                <option value="moon">Луна</option>
+                <option value="mars" selected>Марс</option>
+              </select>
+            </div>
+
+            <div class="field">
+              <label for="calc-urgency">
+                Срочность
+                <span id="urgency-label" class="field-hint">стандарт</span>
+              </label>
+              <input
+                type="range"
+                id="calc-urgency"
+                name="urgency"
+                min="1"
+                max="3"
+                step="1"
+                value="2"
+                aria-valuetext="стандарт"
+              />
+              <div class="range-ticks" aria-hidden="true">
+                <span>эконом</span>
+                <span>стандарт</span>
+                <span>экспресс*</span>
+              </div>
+            </div>
+
+            <div class="field field-check">
+              <label class="check-label">
+                <input type="checkbox" id="calc-thermo" name="thermo" checked />
+                <span>Термобокс (+900 ₽) — пицца остывает медленнее вселенной</span>
+              </label>
+            </div>
+          </div>
+
+          <div class="calc-result" aria-live="polite">
+            <p class="calc-total-label">Итого</p>
+            <p class="calc-total" id="calc-total">—</p>
+            <p class="calc-comment" id="calc-comment">Выберите параметры — и узнаете судьбу своей пиццы.</p>
+            <p class="calc-note">* Экспресс на Марс — это всё равно месяцы. Просто чуть меньше.</p>
+          </div>
+        </form>
+      </div>
+    </section>
+
+    <!-- ===== Марсианская сводка погоды ===== -->
+    <section class="section weather" id="weather" data-reveal>
+      <div class="container">
+        <h2 class="section-title">Погода на Марсе сегодня</h2>
+        <p class="section-lead">От неё зависит, долетит ли ваша пицца горячей</p>
+
+        <div class="weather-panel" aria-live="polite">
+          <div class="weather-main">
+            <div class="weather-report" id="weather-report"></div>
+            <button
+              type="button"
+              class="btn btn-primary"
+              id="weather-btn"
+              aria-label="Обновить погоду на Марсе"
+            >
+              Обновить погоду
+            </button>
+          </div>
+
+          <div class="mars-scene is-calm" id="mars-scene" aria-hidden="true">
+            <div class="mars-scene-stars"></div>
+            <div class="mars-planet-wrap">
+              <div class="mars-planet">
+                <div class="mars-atmosphere"></div>
+                <div class="mars-dust mars-dust-1"></div>
+                <div class="mars-dust mars-dust-2"></div>
+                <div class="mars-dust mars-dust-3"></div>
+                <div class="mars-flash"></div>
+              </div>
+              <div class="mars-orbit">
+                <span class="mars-orbit-craft">🚀🍕</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ===== Отзывы ===== -->
+    <section class="section reviews" id="reviews" data-reveal>
+      <div class="container">
+        <h2 class="section-title">Отзывы марсиан</h2>
+        <p class="section-lead">Реальные колонисты. Ну, почти. У нас строгая политика анонимности (скафандры).</p>
+
+        <div class="reviews-grid">
+          <article class="review-card">
+            <div class="review-head">
+              <span class="review-avatar" aria-hidden="true">👨‍🚀</span>
+              <div>
+                <h3>Кевин из Купола-7</h3>
+                <p class="stars" aria-label="Оценка: 5 из 5">★★★★★</p>
+              </div>
+            </div>
+            <p>«Ждал 214 дней. Пицца была холодной, но я плакал от счастья. Солёный вкус — то ли от сыра, то ли от слёз внутри шлема.»</p>
+          </article>
+
+          <article class="review-card">
+            <div class="review-head">
+              <span class="review-avatar" aria-hidden="true">👩‍🚀</span>
+              <div>
+                <h3>Аиша «Кратер»</h3>
+                <p class="stars" aria-label="Оценка: 4 из 5">★★★★☆</p>
+              </div>
+            </div>
+            <p>«Гавайскую на Земле запретили, а у нас — хит сезона. Ананас в невесомости ведёт себя странно. Рекомендую.»</p>
+          </article>
+
+          <article class="review-card">
+            <div class="review-head">
+              <span class="review-avatar" aria-hidden="true">🤖</span>
+              <div>
+                <h3>Бот-курьер MARS-9</h3>
+                <p class="stars" aria-label="Оценка: 5 из 5">★★★★★</p>
+              </div>
+            </div>
+            <p>«Я не ем углеводы, но логистика безупречна. Один раз доставил в соседний кратер — клиент всё равно оставил 5 звёзд и метеорит.»</p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- ===== Оформление заказа: форма + корзина ===== -->
+    <section class="section order" id="order" data-reveal>
+      <div class="container">
+        <h2 class="section-title">Оформить заказ</h2>
+        <p class="section-lead">Оставьте данные — мы подберём ближайшее окно запуска. Ответ придёт быстрее, чем пицца.</p>
+
+        <div class="order-layout">
+          <form class="order-form" id="order-form" novalidate aria-label="Форма заказа MarsPizza">
+            <div class="field">
+              <label for="order-name">Имя</label>
+              <input
+                type="text"
+                id="order-name"
+                name="name"
+                autocomplete="name"
+                placeholder="Как к вам обращаться на орбите"
+                required
+                minlength="2"
+              />
+              <p class="error" id="error-name" role="alert"></p>
+            </div>
+
+            <div class="field">
+              <label for="order-email">Email</label>
+              <input
+                type="email"
+                id="order-email"
+                name="email"
+                autocomplete="email"
+                placeholder="you@colony.mars"
+                required
+              />
+              <p class="error" id="error-email" role="alert"></p>
+            </div>
+
+            <div class="field">
+              <label for="order-planet">Планета</label>
+              <select id="order-planet" name="planet" required>
+                <option value="">Выберите планету</option>
+                <option value="earth">Земля</option>
+                <option value="moon">Луна</option>
+                <option value="mars">Марс</option>
+              </select>
+              <p class="error" id="error-planet" role="alert"></p>
+            </div>
+
+            <div class="field">
+              <label for="order-comment">Комментарий</label>
+              <textarea
+                id="order-comment"
+                name="comment"
+                rows="4"
+                placeholder="Код шлюза, предпочтения по корочке, аллергия на невесомость…"
+                maxlength="500"
+              ></textarea>
+            </div>
+
+            <button
+              class="btn btn-primary btn-block"
+              type="submit"
+              id="order-submit"
+              disabled
+              aria-describedby="cart-hint"
+            >
+              Отправить заказ в космос
+            </button>
+            <p class="cart-hint" id="cart-hint">Сначала добавьте пиццу</p>
+
+            <p class="form-success" id="form-success" hidden role="status">
+              Заказ принят. Ракета вылетает в ближайшее окно запуска.
+            </p>
+          </form>
+
+          <aside class="order-cart" aria-labelledby="cart-title">
+            <h3 id="cart-title">Ваш заказ</h3>
+            <div id="cart-panel" aria-live="polite">
+              <!-- наполняется из JS -->
+            </div>
+          </aside>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <!-- ===== Footer ===== -->
+  <footer class="site-footer">
+    <div class="container footer-inner">
+      <p class="footer-copy">© 2026 MarsPizza. Все права защищены скафандрами.</p>
+      <ul class="socials" aria-label="Соцсети">
+        <li><a href="#" aria-label="MarsPizza во Вселенской сети">🌌 OrbitNet</a></li>
+        <li><a href="#" aria-label="MarsPizza в мессенджере колонии">📡 ColonyChat</a></li>
+        <li><a href="#" aria-label="MarsPizza на видеоканале">📹 TubeMars</a></li>
+      </ul>
+      <p class="footer-disclaimer">
+        Мы не несём ответственности за метеоритные дожди, солнечные вспышки
+        и пиццу, прибывшую в состоянии «археологический артефакт».
+      </p>
+    </div>
+  </footer>
+
+  <script src="script.js"></script>
+</body>
+</html>
