@@ -11,6 +11,14 @@
   <link rel="stylesheet" href="style.css" />
 </head>
 <body>
+  <!-- Фиксированный космический фон: один слой, без JS -->
+  <div class="cosmos" aria-hidden="true">
+    <div class="cosmos-stars cosmos-stars--a"></div>
+    <div class="cosmos-stars cosmos-stars--b"></div>
+    <div class="cosmos-body cosmos-body--rock"></div>
+    <div class="cosmos-body cosmos-body--comet"></div>
+  </div>
+
   <!-- ===== Header ===== -->
   <header class="site-header" id="top">
     <div class="container header-inner">
@@ -53,8 +61,8 @@
     <!-- ===== Hero ===== -->
     <section class="hero" id="hero" aria-labelledby="hero-title">
       <div class="hero-stars" aria-hidden="true"></div>
-      <div class="container">
-        <div class="hero-inner">
+      <div class="container hero-grid">
+        <div class="hero-copy">
           <p class="brand-badge hero-cascade">MarsPizza</p>
           <h1 id="hero-title" class="hero-cascade">Пицца на Марс за 7 месяцев — горячей? Почти.</h1>
           <p class="hero-sub hero-cascade">
@@ -66,13 +74,29 @@
             <a class="btn btn-ghost" href="#menu">Смотреть меню</a>
           </div>
         </div>
-      </div>
 
-      <!-- CSS-анимация: ракета с пиццей -->
-      <div class="rocket-flight" aria-hidden="true">
-        <div class="rocket">
-          <span class="rocket-pizza">🍕</span>
-          <span class="rocket-body">🚀</span>
+        <div class="hero-visual" aria-hidden="true">
+          <div class="hero-mars-wrap">
+            <div class="hero-mars">
+              <span class="mars-surface" aria-hidden="true"></span>
+              <span class="mars-shade" aria-hidden="true"></span>
+              <span class="mars-glow" aria-hidden="true"></span>
+            </div>
+            <div class="hero-mars-orbit" aria-hidden="true">
+              <span class="hero-mars-craft hero-mars-craft--1">🍕</span>
+              <span class="hero-mars-craft hero-mars-craft--2">🍕</span>
+              <span class="hero-mars-craft hero-mars-craft--3">🍕</span>
+              <span class="hero-mars-craft hero-mars-craft--4">🍕</span>
+              <span class="hero-mars-craft hero-mars-craft--5">🍕</span>
+            </div>
+          </div>
+          <aside class="hero-status">
+            <ul class="hero-status-list">
+              <li><span aria-hidden="true">🗓️</span> Ближайшее окно запуска: 14 дней</li>
+              <li><span aria-hidden="true">🌡️</span> Погода на Марсе: −63°C</li>
+              <li><span aria-hidden="true">🚀</span> Очередь: 3 ракеты</li>
+            </ul>
+          </aside>
         </div>
       </div>
     </section>
@@ -205,6 +229,8 @@
             <div class="mars-scene-stars"></div>
             <div class="mars-planet-wrap">
               <div class="mars-planet">
+                <span class="mars-surface" aria-hidden="true"></span>
+                <span class="mars-shade" aria-hidden="true"></span>
                 <div class="mars-atmosphere"></div>
                 <div class="mars-dust mars-dust-1"></div>
                 <div class="mars-dust mars-dust-2"></div>
