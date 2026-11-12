@@ -568,19 +568,33 @@ p:last-child {
   justify-items: center;
   gap: 1rem;
   min-height: 220px;
-  overflow: hidden;
+  /* visible — иначе box-shadow Марса обрезается по краям */
+  overflow: visible;
+  padding: 2.5rem 1.25rem 1.5rem;
 }
 
 .hero-mars-wrap {
   position: relative;
-  width: min(260px, 70vw);
+  width: min(240px, 62vw);
   aspect-ratio: 1;
   display: grid;
   place-items: center;
 }
 
+/* Свечение вынесено на wrap, чтобы overflow у планеты не мешал */
+.hero-mars-wrap::before {
+  content: "";
+  position: absolute;
+  inset: -18%;
+  border-radius: 50%;
+  background: radial-gradient(circle, rgba(230, 57, 70, 0.35) 0%, rgba(180, 70, 30, 0.12) 42%, transparent 70%);
+  pointer-events: none;
+  z-index: 0;
+}
+
 .hero-mars {
   position: relative;
+  z-index: 1;
   width: 100%;
   aspect-ratio: 1;
   border-radius: 50%;
@@ -593,8 +607,6 @@ p:last-child {
     radial-gradient(circle at 55% 28%, #6e2a18 0 3%, transparent 4%),
     linear-gradient(155deg, #d4784a 0%, #a84628 32%, #7a2e1a 58%, #3d140e 82%, #1a0806 100%);
   box-shadow:
-    0 0 80px rgba(230, 57, 70, 0.4),
-    0 0 120px rgba(180, 70, 30, 0.18),
     inset -18px -14px 36px rgba(0, 0, 0, 0.55),
     inset 10px 8px 24px rgba(255, 180, 120, 0.12);
 }
@@ -644,6 +656,7 @@ p:last-child {
 .hero-mars-orbit {
   position: absolute;
   inset: -12%;
+  z-index: 2;
   border-radius: 50%;
   border: 1px solid rgba(255, 255, 255, 0.14);
   pointer-events: none;
@@ -652,17 +665,17 @@ p:last-child {
 
 .hero-mars-craft {
   position: absolute;
-  font-size: 1.1rem;
-  filter: drop-shadow(0 0 8px rgba(255, 138, 61, 0.55));
+  font-size: 1.75rem;
+  filter: drop-shadow(0 0 10px rgba(255, 138, 61, 0.6));
   translate: -50% -50%;
 }
 
 /* 5 пицц на одной орбите, равномерно по кругу (шаг 72°) */
-.hero-mars-craft--1 { top: 0; left: 50%; }
-.hero-mars-craft--2 { top: 34.5%; left: 97.6%; font-size: 1.05rem; }
-.hero-mars-craft--3 { top: 90.5%; left: 79.4%; font-size: 1rem; }
-.hero-mars-craft--4 { top: 90.5%; left: 20.6%; font-size: 0.95rem; }
-.hero-mars-craft--5 { top: 34.5%; left: 2.4%; font-size: 1.05rem; }
+.hero-mars-craft--1 { top: 0; left: 50%; font-size: 1.9rem; }
+.hero-mars-craft--2 { top: 34.5%; left: 97.6%; font-size: 1.7rem; }
+.hero-mars-craft--3 { top: 90.5%; left: 79.4%; font-size: 1.65rem; }
+.hero-mars-craft--4 { top: 90.5%; left: 20.6%; font-size: 1.6rem; }
+.hero-mars-craft--5 { top: 34.5%; left: 2.4%; font-size: 1.7rem; }
 
 @keyframes hero-orbit-spin {
   from { transform: rotate(0deg); }
@@ -671,6 +684,7 @@ p:last-child {
 
 .hero-status {
   width: min(100%, 320px);
+  margin-top: 2.75rem;
   padding: 0.85rem 1rem;
   border-radius: var(--radius-sm);
   border: 1px solid rgba(255, 255, 255, 0.12);
@@ -1766,7 +1780,7 @@ p:last-child {
   }
 
   .hero-status {
-    margin-right: 8%;
+    margin-top: 0.5rem;
     width: min(100%, 300px);
   }
 
