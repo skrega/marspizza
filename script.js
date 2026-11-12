@@ -591,11 +591,9 @@
     let ok = true;
     const name = document.getElementById("order-name").value.trim();
     const email = document.getElementById("order-email").value.trim();
-    const planet = document.getElementById("order-planet").value;
 
     clearError("order-name");
     clearError("order-email");
-    clearError("order-planet");
 
     if (name.length < 2) {
       showError("order-name", "Укажите имя — хотя бы два символа.");
@@ -604,11 +602,6 @@
 
     if (!EMAIL_RE.test(email)) {
       showError("order-email", "Нужен настоящий email — даже на Марсе.");
-      ok = false;
-    }
-
-    if (!planet) {
-      showError("order-planet", "Выберите планету доставки.");
       ok = false;
     }
 

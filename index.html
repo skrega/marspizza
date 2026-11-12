@@ -8,7 +8,7 @@
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@600;700&family=Space+Grotesk:wght@400;500;600;700&display=swap" rel="stylesheet" />
-  <link rel="stylesheet" href="style.css" />
+  <link rel="stylesheet" href="style.css?v=20261112a" />
 </head>
 <body>
   <!-- Фиксированный космический фон: один слой, без JS -->
@@ -297,53 +297,44 @@
 
         <div class="order-layout">
           <form class="order-form" id="order-form" novalidate aria-label="Форма заказа MarsPizza">
-            <div class="field">
-              <label for="order-name">Имя</label>
+            <p class="order-destination">Доставка только на Марс 🔴</p>
+
+            <div class="field field-float">
               <input
                 type="text"
                 id="order-name"
                 name="name"
                 autocomplete="name"
-                placeholder="Как к вам обращаться на орбите"
+                placeholder=" "
                 required
                 minlength="2"
               />
+              <label for="order-name">Имя</label>
               <p class="error" id="error-name" role="alert"></p>
             </div>
 
-            <div class="field">
-              <label for="order-email">Email</label>
+            <div class="field field-float">
               <input
                 type="email"
                 id="order-email"
                 name="email"
                 autocomplete="email"
-                placeholder="you@colony.mars"
+                placeholder=" "
                 required
               />
+              <label for="order-email">Email</label>
               <p class="error" id="error-email" role="alert"></p>
             </div>
 
-            <div class="field">
-              <label for="order-planet">Планета</label>
-              <select id="order-planet" name="planet" required>
-                <option value="">Выберите планету</option>
-                <option value="earth">Земля</option>
-                <option value="moon">Луна</option>
-                <option value="mars">Марс</option>
-              </select>
-              <p class="error" id="error-planet" role="alert"></p>
-            </div>
-
-            <div class="field">
-              <label for="order-comment">Комментарий</label>
+            <div class="field field-float">
               <textarea
                 id="order-comment"
                 name="comment"
                 rows="4"
-                placeholder="Код шлюза, предпочтения по корочке, аллергия на невесомость…"
+                placeholder=" "
                 maxlength="500"
               ></textarea>
+              <label for="order-comment">Комментарий</label>
             </div>
 
             <button
@@ -389,6 +380,6 @@
     </div>
   </footer>
 
-  <script src="script.js"></script>
+  <script src="script.js?v=20261112a"></script>
 </body>
 </html>
